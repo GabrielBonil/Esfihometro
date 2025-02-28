@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateTotal() {
         let grandTotal = 0;
+        let totalItems = 0;
 
         esfihas.forEach(esfiha => {
             const price = parseFloat(esfiha.dataset.price);
@@ -10,9 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const total = price * quantity;
 
             esfiha.querySelector(".total").textContent = total.toFixed(2);
+            totalItems += quantity;
             grandTotal += total;
         });
 
+        document.getElementById("totalItems").textContent = totalItems;
         document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
     }
 
