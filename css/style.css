@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.esfiha {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+.esfiha img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

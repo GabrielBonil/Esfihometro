@@ -1,2 +1,2 @@
 # Esfihometro
- Esfihômetro - Contador e Conversor de Esfirras
+ Esfihômetro - Contador e Conversor de Esfihas
