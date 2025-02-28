@@ -1,6 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
     const esfihas = document.querySelectorAll(".esfiha");
 
+    function saveToLocalStorage() {
+        const data = {};
+        esfihas.forEach((esfiha, index) => {
+            data[index] = parseInt(esfiha.querySelector(".quantity").textContent);
+        });
+        localStorage.setItem("esfihaCartQuantities", JSON.stringify(data));
+    }
+
+    function loadFromLocalStorage() {
+        const data = JSON.parse(localStorage.getItem("esfihaCartQuantities"));
+        if (data) {
+            esfihas.forEach((esfiha, index) => {
+                const quantity = data[index] || 0;
+                esfiha.querySelector(".quantity").textContent = quantity;
+            });
+        }
+        updateTotal();
+    }
+
     function updateTotal() {
         let grandTotal = 0;
         let totalItems = 0;
@@ -17,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("totalItems").textContent = totalItems;
         document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
+
+        saveToLocalStorage();
     }
 
     esfihas.forEach(esfiha => {
@@ -38,4 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
             updateTotal();
         });
     });
+    
+    loadFromLocalStorage();
 });
